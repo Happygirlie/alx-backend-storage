@@ -1,5 +1,4 @@
---
-CREATE VIEW need_meeting AS
-SELECT name
-FROM students
-WHERE score < 80 AND (last_meeting IS NULL OR last_meeting < DATE_SUB(CURDATE(), INTERVAL 1 MONTH));
+-- script that ranks country origins of bands, ordered
+-- by the number of (non-unique) fans
+SELECT origin, SUM(fans) as nb_fans from metal_bands
+GROUP BY origin ORDER BY nb_fans DESC;
